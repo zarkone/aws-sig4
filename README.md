@@ -18,8 +18,11 @@ Forked from [https://github.com/sharetribe/aws-sig4](https://github.com/sharetri
 
 ## Installation
 
-TODO.
+[Clojars](https://clojars.org/org.zarkone/aws-sig4)
 
+```clojure
+org.zarkone/aws-sig4 {:mvn/version "0.2.2"}
+```
 ## Usage
 
 Require clj-http client and the middleware.
@@ -51,6 +54,7 @@ header. wrap-aws-date must be defined first in the middleware chain.
   [wrap-aws-auth aws-sig4/wrap-aws-date]
   (http/get "https://my-es-instance.us-east-1.es.amazonaws.com/_cat/indices"))
 ```
+
 
 That's it.
 
