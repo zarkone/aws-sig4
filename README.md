@@ -18,10 +18,10 @@ Forked from [https://github.com/sharetribe/aws-sig4](https://github.com/sharetri
 
 ## Installation
 
-[Clojars](https://clojars.org/org.zarkone/aws-sig4)
+[![Clojars Project](https://img.shields.io/clojars/v/org.zarkone/aws-sig4.svg)](https://clojars.org/org.zarkone/aws-sig4)
 
 ```clojure
-org.zarkone/aws-sig4 {:mvn/version "0.2.2"}
+org.zarkone/aws-sig4 {:mvn/version "x.x.x"}
 ```
 ## Usage
 
