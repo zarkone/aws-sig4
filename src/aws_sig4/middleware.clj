@@ -27,6 +27,19 @@
     ([request respond raise]
      (client (ensure-aws-date request) respond raise))))
 
+(defn add-body-hash [request]
+  (assoc-in request [:headers "x-amz-content-sha256"]
+            (auth/hashed-payload (:body request))))
+
+(defn wrap-body-hash
+  [client]
+  (fn
+    ([request]
+     (client (add-body-hash request)))
+    ([request respond raise]
+     (client (add-body-hash request) respond raise))))
+
+
 (defn sign [request {:keys [token] :as aws-opts}]
   (let [auth (-> request
                  auth/canonical-request
@@ -67,4 +80,5 @@
       (-> client
           (aws-auth)
           (wrap-aws-date)
+          (wrap-body-hash)
           (http/wrap-url)))))
